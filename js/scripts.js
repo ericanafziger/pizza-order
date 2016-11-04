@@ -6,26 +6,26 @@ var Customer = function(name, email, toppings, crust, size) {
   this.crust = crust;
   this.size = size;
 }
+var crustPrice;
+var toppingsPrice;
 
 Customer.prototype.cost = function () {
-  var toppingsPrice = this.toppings.length * 0.75;
+  toppingsPrice = this.toppings.length * 0.75;
   if (this.crust === "stuffed" || this.crust === "deep dish") {
-    var crustPrice = 1.99;
+    crustPrice = 1.99;
   } else {
-    var crustPrice = 0;
+    crustPrice = 0.00;
   }
   var sizePrice = this.size;
   return sizePrice + crustPrice + toppingsPrice;
 };
 
-// Customer.prototype.crustCost = function () {
-//   if (this.crust === "stuffed" || this.crust === "deep dish") {
-//     return 1.99;
-//   }
-//
-// };
-
 var newCustomer = new Customer();
+
+function reload() {
+  crustPrice = 0.00;
+  toppingsPrice = 0.00;
+}
 
 
 
@@ -39,6 +39,7 @@ $(document).ready(function(){
     var emailInput = $("input#email").val();
     newCustomer.name = nameInput;
     newCustomer.email = emailInput;
+    $(".nameForOrder").text(nameInput);
     $("#section-one").fadeOut(300);
     $("#section-two").delay(300).fadeIn(300);
 
@@ -46,16 +47,18 @@ $(document).ready(function(){
 
   $("form#pizzaForm").submit(function(event){
     event.preventDefault();
-
+    newCustomer.toppings = [];
+    reload();
     $("input:checkbox[name=toppings]:checked").each(function(){
       newCustomer.toppings.push($(this).val());
     });
     newCustomer.crust = $("#crust").val();
     newCustomer.size = parseFloat($("#size").val());
-    alert(newCustomer.size);
     var cost = newCustomer.cost();
-    // console.log(toppingsCost);
-    console.log(cost);
+    $(".price").text(cost);
+    $(".crustPrice").text(crustPrice.toFixed(2));
+    $(".toppingsPrice").text(toppingsPrice.toFixed(2));
+    $(".sizePrice").text(newCustomer.size);
     console.log(newCustomer);
 
   }); // end of pizzaForm submit

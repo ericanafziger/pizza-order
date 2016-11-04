@@ -1,3 +1,7 @@
 #section-two {
   display: none;
 }
+.underline {
+  font-weight: bold;
+  text-decoration: underline;
+}
