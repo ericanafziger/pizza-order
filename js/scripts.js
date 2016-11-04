@@ -7,11 +7,23 @@ var Customer = function(name, email, toppings, crust, size) {
   this.size = size;
 }
 
-Customer.prototype.toppingsCost = function () {
-  var cost = this.toppings.length * 0.75;
-  return cost;
+Customer.prototype.cost = function () {
+  var toppingsPrice = this.toppings.length * 0.75;
+  if (this.crust === "stuffed" || this.crust === "deep dish") {
+    var crustPrice = 1.99;
+  } else {
+    var crustPrice = 0;
+  }
+  var sizePrice = this.size;
+  return sizePrice + crustPrice + toppingsPrice;
+};
 
-}
+// Customer.prototype.crustCost = function () {
+//   if (this.crust === "stuffed" || this.crust === "deep dish") {
+//     return 1.99;
+//   }
+//
+// };
 
 var newCustomer = new Customer();
 
@@ -37,11 +49,13 @@ $(document).ready(function(){
 
     $("input:checkbox[name=toppings]:checked").each(function(){
       newCustomer.toppings.push($(this).val());
-      newCustomer.crust = $("#crust").val();
-      newCustomer.size = $("#size").val();
-      var cost = newCustomer.toppingsCost();
-      console.log(cost);
     });
+    newCustomer.crust = $("#crust").val();
+    newCustomer.size = parseFloat($("#size").val());
+    alert(newCustomer.size);
+    var cost = newCustomer.cost();
+    // console.log(toppingsCost);
+    console.log(cost);
     console.log(newCustomer);
 
   }); // end of pizzaForm submit
