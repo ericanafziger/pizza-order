@@ -36,22 +36,21 @@ Customer.prototype.totalPrice = function () {
   return customerTotal.toFixed(2);
 };
 
-//clears form when new pizza is added
-function reload() {
-  $('input:checkbox[name=toppings]').each(function () {
-    $(this).prop("checked", false);
-  });
-  $("#size").val("");
-  $("#crust").val("");
-  $(".price").text("0.00");
-}
-
-
 
 
 /////// front end logic /////////////////
 $(document).ready(function(){
   newCustomer = new Customer ();
+
+  //clears form when new pizza is added
+  function reload() {
+    $('input:checkbox[name=toppings]').each(function () {
+      $(this).prop("checked", false);
+    });
+    $("#size").val("");
+    $("#crust").val("");
+    $(".price").text("0.00");
+  }
 
   //button to submit user name entry form
   $("form#userName").submit(function(event){
@@ -102,11 +101,10 @@ $(document).ready(function(){
     } else {
       alert("Hold up! You haven't finished your pizza yet.");
     }
-    console.log(newCustomer);
   }); // end of pizzaForm submit
 
   // button adds new pizza to customer object
-  $(".btn-success").click(function(){
+  $(".btn-default").click(function(){
     reload();
     $(".btn-default").hide();
     $(".btn-success").hide();
@@ -115,11 +113,10 @@ $(document).ready(function(){
     newCustomer.pizzas.push(new Pizza());
     pizzaNumber = (newCustomer.pizzas.length);
     $(".pizzaNumber").text(pizzaNumber);
-    console.log(newCustomer);
   });
 
   //displays customer receipt in final section
-  $(".btn-default").click(function(){
+  $(".btn-success").click(function(){
     $("#section-two").fadeOut();
     $("#section-three").fadeIn();
 
