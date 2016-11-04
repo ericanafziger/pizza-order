@@ -1,8 +1,8 @@
 # _Pizza My Heart_
 
-#### _App allows you to order pizzas from Pizza My Heart, November 4, 2016_
+#### App allows you to order pizzas from Pizza My Heart, November 4, 2016
 
-#### By _**Erica Nafziger**_
+#### By **Erica Nafziger**
 
 ## Description
 
@@ -16,7 +16,7 @@ _This application is designed to allow the user to enter their name and email an
 
 ## Known Bugs
 
-_After first pizza, all checkboxes for toppings can remain unchecked and you will still be able to calculate cost and add another pizza to the order_
+After first pizza, all checkboxes for toppings can remain unchecked and you will still be able to calculate cost and add another pizza to the order.
 
 ## Technologies Used
 
@@ -39,6 +39,6 @@ _After first pizza, all checkboxes for toppings can remain unchecked and you wil
 
 ### License
 
-*This software is licensed under the MIT license *
+*This software is licensed under the MIT license*
 
-Copyright (c) 2016 **_Erica Nafziger_**
+Copyright (c) 2016 **Erica Nafziger**
