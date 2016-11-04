@@ -22,10 +22,6 @@ Customer.prototype.cost = function () {
 
 var newCustomer = new Customer();
 
-function reload() {
-  crustPrice = 0.00;
-  toppingsPrice = 0.00;
-}
 
 
 
@@ -49,7 +45,6 @@ $(document).ready(function(){
   $("form#pizzaForm").submit(function(event){
     event.preventDefault();
     newCustomer.toppings = [];
-    reload();
     $("input:checkbox[name=toppings]:checked").each(function(){
       newCustomer.toppings.push($(this).val());
     });
@@ -63,12 +58,12 @@ $(document).ready(function(){
       $(".toppingsPrice").text(toppingsPrice.toFixed(2));
       $(".sizePrice").text(newCustomer.size);
       $(".btn-default").fadeIn();
+      $(".re").text("Re-");
     } else {
-      alert("You haven't finished your pizza yet!");
+      alert("Hold up! You haven't finished your pizza yet.");
     }
     console.log(newCustomer);
   }); // end of pizzaForm submit
-
   $(".btn-default").click(function(){
     $("#section-two").hide();
     $("#section-three").fadeIn();
