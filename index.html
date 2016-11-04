@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <script src="js/jquery3.1.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Pizza Pizza</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Pizza Pizza!</h1>
+      <p>To get started with your online order, please fill out the form below.</p>
+      <form id="userName">
+        <div class="form-group">
+          <label for="email">Enter Your Email:</label>
+          <input type="text" name="email" id="email" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="name">Enter Your Name:</label>
+          <input type="text" name="name" id="name" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-info">Let's Go!</button>
+      </form>
+    </div><!--end of 1st container-->
+
+    <div class="container">
+      <h1>Let's get that pizza rolling!</h1>
+      <p>Select the options below which you would like to add to your pizza.</p>
+      <form id="pizzaForm">
+        <div class="form-group row">
+          <label for="toppings">Please check all the toppings you would like on your pizza:</label> <br>
+          <div class="col-md-3">
+            <input type="checkbox" name="toppings" value="mushrooms"> Mushrooms <br>
+            <input type="checkbox" name="toppings" value="onions"> Onions <br>
+            <input type="checkbox" name="toppings" value="pepperoni"> Pepperoni <br>
+            <input type="checkbox" name="toppings" value="canadian bacon"> Canadian Bacon <br>
+          </div><!--end of col 1-->
+          <div class="col-md-3">
+            <input type="checkbox" name="toppings" value="pineapple"> Pineapple <br>
+            <input type="checkbox" name="toppings" value="anchovy"> Anchovy <br>
+            <input type="checkbox" name="toppings" value="cheese"> Cheese <br>
+            <input type="checkbox" name="toppings" value="sausage"> Sausage <br>
+          </div><!--end of col 2-->
+        </div><!--end of row-->
+        <div class="form-group">
+          <label for="crust">Pick a crust for your pizza:</label>
+          <select class="form-control" id="crust">
+            <option>- pick a crust -</option>
+            <option value="thin">Thin Crust</option>
+            <option value="original">Original</option>
+            <option value="stuffed">Stuffed Crust</option>
+            <option value="deep dish">Deep Dish</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="size">Pick a size for your pizza:</label>
+          <select class="form-control" id="size">
+            <option>- pick a size -</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="giant">Giant</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-info">Next!</button>
+      </form>
+    </div><!--end of 1st container-->
+  </body>
+</html>
