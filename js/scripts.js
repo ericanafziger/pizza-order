@@ -81,12 +81,13 @@ $(document).ready(function(){
     $("input:checkbox[name=toppings]:checked").each(function(){
       newCustomer.pizzas[pizzaNumber - 1].toppings.push($(this).val());
     });
+
     newCustomer.pizzas[pizzaNumber - 1].crust = $("#crust").val();
     newCustomer.pizzas[pizzaNumber - 1].size = parseFloat($("#size").val());
     newCustomer.pizzas[pizzaNumber - 1].price = newCustomer.pizzas[pizzaNumber - 1].cost();
 
     // if statement makes sure order form is filled out
-    if (newCustomer.pizzas[pizzaNumber - 1].crust && newCustomer.pizzas[pizzaNumber - 1].size && newCustomer.pizzas[0].toppings.length > 0) {
+    if (newCustomer.pizzas[pizzaNumber - 1].crust && newCustomer.pizzas[pizzaNumber - 1].size && newCustomer.pizzas[pizzaNumber - 1].toppings.length > 0) {
       // replaces pizza price
       $(".price").text(newCustomer.pizzas[pizzaNumber - 1].price);
       // replaces totalPrice

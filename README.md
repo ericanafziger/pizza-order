@@ -14,10 +14,6 @@ _This application is designed to allow the user to enter their name and email an
 * Open in any up-to-date browser
 * Open in gh-pages [here](https://ericanafziger.github.io/pizza-order/)
 
-## Known Bugs
-
-After first pizza, all checkboxes for toppings can remain unchecked and you will still be able to calculate cost and add another pizza to the order.
-
 ## Technologies Used
 
 * HTML 5
@@ -39,6 +35,6 @@ After first pizza, all checkboxes for toppings can remain unchecked and you will
 
 ### License
 
-*This software is licensed under the MIT license*
+*This software is licensed under the MIT license.*
 
 Copyright (c) 2016 **Erica Nafziger**
