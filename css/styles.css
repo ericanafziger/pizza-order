@@ -32,6 +32,11 @@ body {
   margin-right: auto;
   min-height: 500px;
 }
+#homeWell input {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+}
 #orderWell {
   background-color: rgba(128, 139, 150, 0.8);
   margin-top: 20%;
@@ -41,17 +46,21 @@ body {
   min-height: 560px;
   padding: 5%;
 }
-#homeWell input {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 500px;
-}
-
 #priceWell {
   color: #1B2631;
   text-align: left;
   min-height: 266px;
   margin-top: 3%;
+}
+#resultWell {
+  background-color: rgba(128, 139, 150, 0.8);
+  margin-top: 30%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  min-height: 300px;
+  padding: 5%;
 }
 
 .btn-default {
