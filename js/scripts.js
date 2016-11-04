@@ -40,6 +40,7 @@ $(document).ready(function(){
     newCustomer.name = nameInput;
     newCustomer.email = emailInput;
     $(".nameForOrder").text(nameInput);
+    $(".emailForOrder").text(emailInput);
     $("#section-one").fadeOut(300);
     $("#section-two").delay(300).fadeIn(300);
 
@@ -61,6 +62,7 @@ $(document).ready(function(){
       $(".crustPrice").text(crustPrice.toFixed(2));
       $(".toppingsPrice").text(toppingsPrice.toFixed(2));
       $(".sizePrice").text(newCustomer.size);
+      $(".btn-warning").fadeIn();
     } else {
       alert("You haven't finished your pizza yet!");
     }
@@ -69,6 +71,7 @@ $(document).ready(function(){
 
   $(".btn-warning").click(function(){
     $("#section-two").hide();
+    $("#section-three").fadeIn();
 
   });
 
