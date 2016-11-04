@@ -5,7 +5,7 @@ body {
   background: url(../img/blue-background.jpg);
   background-size: cover;
 }
-#section-two, #section-three, #section-number, .btn-default {
+#section-two, #section-three, #section-number, #section-new, .btn-default, .btn-success {
   display: none;
 }
 .underline {
@@ -87,6 +87,9 @@ body {
   margin-top: 2%;
   background-color: #D6DBDF;
   border-color: #D6DBDF;
+}
+.btn-success {
+  margin-top: 2%;
 }
 .btn-danger {
   margin-top: 2%;

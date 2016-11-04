@@ -28,29 +28,9 @@
       </div>
     </div><!--end of section-one-->
 
-    <div class="container" id="section-number">
-      <div class="well" id="numberWell">
-        <h1>How many pizzas would you like to order today?</h1>
-        <form id="pizzaNumber">
-          <div class="form-group">
-            <label for="name">Number of pizzas:</label>
-            <select class="form-control" id="number">
-              <option></option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="4">5</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-danger">Next!</button>
-        </form>
-      </div>
-    </div><!--end of section-one-->
-
     <div class="container" id="section-two">
       <div class="well" id="orderWell">
-        <h2 class="emphasize">Let's get that pizza rolling <span class="underline nameForOrder"></span>!</h2>
+        <h2 class="emphasize">Let's get pizza # <span class=" highlight pizzaNumber"></span> rolling <span class="underline nameForOrder"></span>!</h2>
         <h5>Select the options to customize your pizza below.</h5><br>
         <div class="row">
           <div class="col-md-8">
@@ -102,16 +82,19 @@
               <p>Crust Cost: $<span class="crustPrice">0.00</span></p>
               <p>Size Cost: $<span class="sizePrice">0.00</span></p>
               <p>Total: $<span class="price">0.00</span></p>
-              <center><button type="submit" class="btn btn-default">Place Order</button></center>
+              <center><button type="submit" class="btn btn-default">Place Order</button><button type="submit" class="btn btn-success">Add Pizza</button></center>
             </div>
           </div>
         </div><!--end of row-->
       </div><!--end of overall well-->
     </div><!--end of section-two-->
+
+
     <div class="container" id="section-three">
       <div class="well" id="resultWell">
         <h1><span class="highlight">Thanks, <span class="nameForOrder"></span>!</span></h1>
         <p>Your pizza is on its way.</p>
+        <p>You ordered <span class="pizzaNumber"></span> pizza(s).</p>
         <p>An email has been sent to <span class="underline emailForOrder"></span> confirming your order.</p>
       </div>
     </div>
