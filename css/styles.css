@@ -17,6 +17,9 @@ body {
   font-family: 'Pacifico', cursive;
   font-size: 2em;
 }
+.color {
+  color: #922B21;
+}
 .emphasize {
   color: #1B2631;
   font-family: 'Pacifico', cursive;
