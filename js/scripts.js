@@ -15,6 +15,7 @@ var Pizza = function(toppings, crust, size) {
 
 var crustPrice;
 var toppingsPrice;
+var pizzaNumber;
 
 Pizza.prototype.cost = function () {
   toppingsPrice = this.toppings.length * 0.75;
@@ -28,8 +29,8 @@ Pizza.prototype.cost = function () {
 };
 
 function reload() {
-  $("#checkbox").prop("checked", false);
-  parseFloat($("#size").val(""));
+  $("input:checkbox[name=toppings]").attr("checked", false);
+  $("#size").val("");
   $("#crust").val("");
 }
 
@@ -55,7 +56,7 @@ $(document).ready(function(){
   }); // end of userName submit
 
   newCustomer.pizzas.push(new Pizza());
-  var pizzaNumber = (newCustomer.pizzas.length);
+  pizzaNumber = (newCustomer.pizzas.length);
   $(".pizzaNumber").text(pizzaNumber);
 
   $("form#pizzaForm").submit(function(event){
@@ -85,6 +86,9 @@ $(document).ready(function(){
       console.log(newCustomer);
   }); // end of pizzaForm submit
   $(".btn-success").click(function(){
+    reload();
+    console.log(pizzaNumber);
+    $("ul .pizzaNumberCost").append("<li>Pizza " + (pizzaNumber) + " cost: $" + newCustomer.pizzas[pizzaNumber - 1].cost()+"</li>");
     newCustomer.pizzas.push(new Pizza());
     pizzaNumber = (newCustomer.pizzas.length);
     $(".pizzaNumber").text(pizzaNumber);
