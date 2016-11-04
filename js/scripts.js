@@ -3,14 +3,12 @@ var Customer = function(name, email, pizzas) {
   this.name = name;
   this.email = email;
   this.pizzas = [];
-  // this.toppings = [];
-  // this.crust = crust;
-  // this.size = size;
 }
-var Pizza = function(toppings, crust, size) {
+var Pizza = function(toppings, crust, size, price) {
   this.toppings = toppings;
   this.crust = crust;
   this.size = size;
+  this.price = price;
 }
 
 var crustPrice;
@@ -29,9 +27,10 @@ Pizza.prototype.cost = function () {
 };
 
 function reload() {
-  $("input:checkbox[name=toppings]").attr("checked", false);
+  $("input:checkbox[name=toppings]").val(""); //not currently working to clear checkboxes
   $("#size").val("");
   $("#crust").val("");
+  $(".price").text("0.00");
 }
 
 
@@ -69,10 +68,10 @@ $(document).ready(function(){
       });
       newCustomer.pizzas[pizzaNumber - 1].crust = $("#crust").val();
       newCustomer.pizzas[pizzaNumber - 1].size = parseFloat($("#size").val());
-      var cost = newCustomer.pizzas[pizzaNumber - 1].cost();
+      newCustomer.pizzas[pizzaNumber - 1].price = newCustomer.pizzas[pizzaNumber - 1].cost();
 
       if (newCustomer.pizzas[pizzaNumber - 1].crust && newCustomer.pizzas[pizzaNumber - 1].size && newCustomer.pizzas[0].toppings.length > 0) {
-        $(".price").text(cost);
+        $(".price").text(newCustomer.pizzas[pizzaNumber - 1].price);
         $(".crustPrice").text(crustPrice.toFixed(2));
         $(".toppingsPrice").text(toppingsPrice.toFixed(2));
         $(".sizePrice").text(newCustomer.pizzas[pizzaNumber - 1].size);
