@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Fjalla+One|Pacifico|Shrikhand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="js/jquery-3.1.1.js"></script>
@@ -13,7 +13,6 @@
       <div class="well" id="homeWell">
         <h1>Welcome to</h1>
         <h1><span class="highlight">Pizza Your Heart!</span></h1>
-        <br>
         <h4>To get started with your online order, please fill out the form below.</h4>
         <form id="userName">
           <div class="form-group">
@@ -30,62 +29,64 @@
     </div><!--end of section-one-->
 
     <div class="container" id="section-two">
-      <h1>Let's get that pizza rolling <span class="nameForOrder"></span>!</h1>
-      <p>Select the options below which you would like to add to your pizza.</p>
-      <div class="row">
-        <div class="col-md-9">
-          <form id="pizzaForm">
-            <div class="form-group row">
-              <label for="toppings">Please check all the toppings you would like on your pizza ($0.75 each):</label> <br>
-              <div class="col-md-3">
-                <input type="checkbox" name="toppings" value="mushrooms"> Mushrooms <br>
-                <input type="checkbox" name="toppings" value="onions"> Onions <br>
-                <input type="checkbox" name="toppings" value="pepperoni"> Pepperoni <br>
-                <input type="checkbox" name="toppings" value="canadian bacon"> Canadian Bacon <br>
-              </div><!--end of col 1-->
+      <div class="well" id="orderWell">
+        <h2 class="emphasize">Let's get that pizza rolling <span class="underline nameForOrder"></span>!</h2>
+        <h5>Select the options to customize your pizza below.</h5><br>
+        <div class="row">
+          <div class="col-md-8">
+            <form id="pizzaForm">
+              <div class="form-group row">
+                <label for="toppings">Please check all the toppings you would like on your pizza ($0.75 each):</label> <br>
+                <div class="col-md-4">
+                  <input type="checkbox" name="toppings" value="mushrooms"> Mushrooms <br>
+                  <input type="checkbox" name="toppings" value="onions"> Onions <br>
+                  <input type="checkbox" name="toppings" value="pepperoni"> Pepperoni <br>
+                  <input type="checkbox" name="toppings" value="canadian bacon"> Canadian Bacon <br>
+                </div><!--end of col 1-->
 
-              <div class="col-md-3">
-                <input type="checkbox" name="toppings" value="pineapple"> Pineapple <br>
-                <input type="checkbox" name="toppings" value="anchovy"> Anchovy <br>
-                <input type="checkbox" name="toppings" value="cheese"> Cheese <br>
-                <input type="checkbox" name="toppings" value="sausage"> Sausage <br>
-              </div><!--end of col 2-->
-            </div><!--end of row-->
+                <div class="col-md-4">
+                  <input type="checkbox" name="toppings" value="pineapple"> Pineapple <br>
+                  <input type="checkbox" name="toppings" value="anchovy"> Anchovy <br>
+                  <input type="checkbox" name="toppings" value="cheese"> Cheese <br>
+                  <input type="checkbox" name="toppings" value="sausage"> Sausage <br>
+                </div><!--end of col 2-->
+              </div><!--end of row-->
 
-            <div class="form-group">
-              <label for="crust">Pick a crust for your pizza:</label>
-              <select class="form-control" id="crust">
-                <option></option>
-                <option value="thin">Thin Crust</option>
-                <option value="original">Original</option>
-                <option value="stuffed">Stuffed Crust + $1.99</option>
-                <option value="deep dish">Deep Dish + $1.99</option>
-              </select>
+              <div class="form-group">
+                <label for="crust">Pick a crust for your pizza:</label>
+                <select class="form-control" id="crust">
+                  <option></option>
+                  <option value="thin">Thin Crust</option>
+                  <option value="original">Original</option>
+                  <option value="stuffed">Stuffed Crust + $1.99</option>
+                  <option value="deep dish">Deep Dish + $1.99</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="size">Pick a size for your pizza:</label>
+                <select class="form-control" id="size">
+                  <option></option>
+                  <option value="6.99">Small - $6.99 </option>
+                  <option value="8.99">Medium - $8.99</option>
+                  <option value="10.99">Large - $10.99</option>
+                  <option value="12.99">Giant - $12.99</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-danger">Calculate Cost!</button>
+            </form>
+          </div><!--end of 1st col-->
+          <div class="col-md-4">
+            <div class="well" id="priceWell">
+              <h3><span class="underline">Order Cost</span></h3><br>
+              <p>Toppings Cost: $<span class="toppingsPrice">0.00</span></p>
+              <p>Crust Cost: $<span class="crustPrice">0.00</span></p>
+              <p>Size Cost: $<span class="sizePrice">0.00</span></p>
+              <p>Total: $<span class="price">0.00</span></p>
+              <center><button type="submit" class="btn btn-default">Place Order</button></center>
             </div>
-            <div class="form-group">
-              <label for="size">Pick a size for your pizza:</label>
-              <select class="form-control" id="size">
-                <option></option>
-                <option value="6.99">Small - $6.99 </option>
-                <option value="8.99">Medium - $8.99</option>
-                <option value="10.99">Large - $10.99</option>
-                <option value="12.99">Giant - $12.99</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-info">Calculate Cost!</button>
-          </form>
-        </div><!--end of 1st col-->
-        <div class="col-md-3">
-          <div class="well">
-            <h3><span class="underline">Order Cost</span></h3>
-            <p>Toppings Cost: $<span class="toppingsPrice">0.00</span></p>
-            <p>Crust Cost: $<span class="crustPrice">0.00</span></p>
-            <p>Size Cost: $<span class="sizePrice">0.00</span></p>
-            <p>Total: $<span class="price">0.00</span></p>
           </div>
-          <button type="submit" class="btn btn-warning">Place Order</button>
-        </div>
-      </div><!--end of row-->
+        </div><!--end of row-->
+      </div><!--end of overall well-->
     </div><!--end of section-two-->
     <div class="container" id="section-three">
       <div class="well">

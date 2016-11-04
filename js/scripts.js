@@ -62,14 +62,14 @@ $(document).ready(function(){
       $(".crustPrice").text(crustPrice.toFixed(2));
       $(".toppingsPrice").text(toppingsPrice.toFixed(2));
       $(".sizePrice").text(newCustomer.size);
-      $(".btn-warning").fadeIn();
+      $(".btn-default").fadeIn();
     } else {
       alert("You haven't finished your pizza yet!");
     }
     console.log(newCustomer);
   }); // end of pizzaForm submit
 
-  $(".btn-warning").click(function(){
+  $(".btn-default").click(function(){
     $("#section-two").hide();
     $("#section-three").fadeIn();
 
