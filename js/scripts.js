@@ -16,6 +16,7 @@ var toppingsPrice;
 var pizzaNumber;
 var customerTotal = 0;
 
+//calculates the price of each individual pizza
 Pizza.prototype.cost = function () {
   toppingsPrice = this.toppings.length * 0.75;
   if (this.crust === "stuffed" || this.crust === "deep dish") {
@@ -27,6 +28,7 @@ Pizza.prototype.cost = function () {
   return sizePrice + crustPrice + toppingsPrice;
 };
 
+//calculates total price for all pizzas the customer is ordering
 Customer.prototype.totalPrice = function () {
   for (i=0; i < this.pizzas.length; i++) {
     customerTotal += this.pizzas[i].price;
@@ -34,8 +36,11 @@ Customer.prototype.totalPrice = function () {
   return customerTotal.toFixed(2);
 };
 
+//clears form when new pizza is added
 function reload() {
-  $("input:checkbox[name=toppings]").val(""); //not currently working to clear checkboxes
+  $('input:checkbox[name=toppings]').each(function () {
+    $(this).prop("checked", false);
+  });
   $("#size").val("");
   $("#crust").val("");
   $(".price").text("0.00");
@@ -48,6 +53,7 @@ function reload() {
 $(document).ready(function(){
   newCustomer = new Customer ();
 
+  //button to submit user name entry form
   $("form#userName").submit(function(event){
     event.preventDefault();
 
@@ -62,40 +68,41 @@ $(document).ready(function(){
 
   }); // end of userName submit
 
-  newCustomer.pizzas.push(new Pizza());
-  pizzaNumber = (newCustomer.pizzas.length);
-  $(".pizzaNumber").text(pizzaNumber);
+  newCustomer.pizzas.push(new Pizza()); // creates one pizza in the customer object for user to begin with
+  pizzaNumber = (newCustomer.pizzas.length); // calculates how many pizzas customer is currently ordering
+  $(".pizzaNumber").text(pizzaNumber); //displays what pizza number customer is on
 
+  //calculate cost button once user has filled out form in section-two
   $("form#pizzaForm").submit(function(event){
     event.preventDefault();
-      newCustomer.pizzas[pizzaNumber - 1].toppings = [];
-      $("input:checkbox[name=toppings]:checked").each(function(){
-        newCustomer.pizzas[pizzaNumber - 1].toppings.push($(this).val());
-      });
-      newCustomer.pizzas[pizzaNumber - 1].crust = $("#crust").val();
-      newCustomer.pizzas[pizzaNumber - 1].size = parseFloat($("#size").val());
-      newCustomer.pizzas[pizzaNumber - 1].price = newCustomer.pizzas[pizzaNumber - 1].cost();
+    newCustomer.pizzas[pizzaNumber - 1].toppings = [];
+    $("input:checkbox[name=toppings]:checked").each(function(){
+      newCustomer.pizzas[pizzaNumber - 1].toppings.push($(this).val());
+    });
+    newCustomer.pizzas[pizzaNumber - 1].crust = $("#crust").val();
+    newCustomer.pizzas[pizzaNumber - 1].size = parseFloat($("#size").val());
+    newCustomer.pizzas[pizzaNumber - 1].price = newCustomer.pizzas[pizzaNumber - 1].cost();
 
-      // if statement makes sure order form is filled out
-      if (newCustomer.pizzas[pizzaNumber - 1].crust && newCustomer.pizzas[pizzaNumber - 1].size && newCustomer.pizzas[0].toppings.length > 0) {
-        // replaces pizza price
-        $(".price").text(newCustomer.pizzas[pizzaNumber - 1].price);
-        // replaces totalPrice
-        customerTotal = 0;
-        $(".totalPrice").text(newCustomer.totalPrice());
-        $(".crustPrice").text(crustPrice.toFixed(2));
-        $(".toppingsPrice").text(toppingsPrice.toFixed(2));
-        $(".sizePrice").text(newCustomer.pizzas[pizzaNumber - 1].size);
-        $(".btn-default").fadeIn();
-        $(".btn-success").fadeIn();
-        $(".re").text("Re-");
-      } else {
-        alert("Hold up! You haven't finished your pizza yet.");
-      }
-
-      console.log(newCustomer);
+    // if statement makes sure order form is filled out
+    if (newCustomer.pizzas[pizzaNumber - 1].crust && newCustomer.pizzas[pizzaNumber - 1].size && newCustomer.pizzas[0].toppings.length > 0) {
+      // replaces pizza price
+      $(".price").text(newCustomer.pizzas[pizzaNumber - 1].price);
+      // replaces totalPrice
+      customerTotal = 0;
+      $(".totalPrice").text(newCustomer.totalPrice());
+      $(".crustPrice").text(crustPrice.toFixed(2));
+      $(".toppingsPrice").text(toppingsPrice.toFixed(2));
+      $(".sizePrice").text(newCustomer.pizzas[pizzaNumber - 1].size);
+      $(".btn-default").fadeIn();
+      $(".btn-success").fadeIn();
+      $(".re").text("Re-");
+    } else {
+      alert("Hold up! You haven't finished your pizza yet.");
+    }
+    console.log(newCustomer);
   }); // end of pizzaForm submit
 
+  // button adds new pizza to customer object
   $(".btn-success").click(function(){
     reload();
     $(".btn-default").hide();
@@ -106,9 +113,9 @@ $(document).ready(function(){
     pizzaNumber = (newCustomer.pizzas.length);
     $(".pizzaNumber").text(pizzaNumber);
     console.log(newCustomer);
-
   });
 
+  //displays customer receipt in final section
   $(".btn-default").click(function(){
     $("#section-two").fadeOut();
     $("#section-three").fadeIn();
