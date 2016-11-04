@@ -56,16 +56,18 @@ $(document).ready(function(){
   //button to submit user name entry form
   $("form#userName").submit(function(event){
     event.preventDefault();
-
-    var nameInput = $("input#name").val();
-    var emailInput = $("input#email").val();
-    newCustomer.name = nameInput;
-    newCustomer.email = emailInput;
-    $(".nameForOrder").text(nameInput);
-    $(".emailForOrder").text(emailInput);
-    $("#section-one").fadeOut(300);
-    $("#section-two").delay(300).fadeIn(300);
-
+      var nameInput = $("input#name").val();
+      var emailInput = $("input#email").val();
+      newCustomer.name = nameInput;
+      newCustomer.email = emailInput;
+    if (userName && emailInput) {
+      $(".nameForOrder").text(nameInput);
+      $(".emailForOrder").text(emailInput);
+      $("#section-one").fadeOut(300);
+      $("#section-two").delay(300).fadeIn(300);
+  } else {
+      alert("Please fill out the form!");
+  }
   }); // end of userName submit
 
   newCustomer.pizzas.push(new Pizza()); // creates one pizza in the customer object for user to begin with
