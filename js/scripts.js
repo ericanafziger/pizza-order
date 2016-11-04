@@ -55,13 +55,21 @@ $(document).ready(function(){
     newCustomer.crust = $("#crust").val();
     newCustomer.size = parseFloat($("#size").val());
     var cost = newCustomer.cost();
-    $(".price").text(cost);
-    $(".crustPrice").text(crustPrice.toFixed(2));
-    $(".toppingsPrice").text(toppingsPrice.toFixed(2));
-    $(".sizePrice").text(newCustomer.size);
-    console.log(newCustomer);
 
+    if (newCustomer.crust && newCustomer.size && newCustomer.toppings.length > 0) {
+      $(".price").text(cost);
+      $(".crustPrice").text(crustPrice.toFixed(2));
+      $(".toppingsPrice").text(toppingsPrice.toFixed(2));
+      $(".sizePrice").text(newCustomer.size);
+    } else {
+      alert("You haven't finished your pizza yet!");
+    }
+    console.log(newCustomer);
   }); // end of pizzaForm submit
 
+  $(".btn-warning").click(function(){
+    $("#section-two").hide();
+
+  });
 
 }); //end of document ready
